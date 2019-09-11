@@ -1,0 +1,37 @@
+<!-- <!doctype HTML>
+<html>
+<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@1.7.8/aframe/build/aframe-ar.js"></script>
+  <body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs="debugUIEnabled: false">        
+        <a-assets>
+            <a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/2P/G326PP.gltf" ></a-asset-item>
+            <a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@52b3593a/1.0/Duck/glTF/Duck.gltf"></a-asset-item>
+          </a-assets>
+          <a-marker preset="hiro">
+              <a-gltf-model src="#cooler"></a-gltf-model>
+              <a-entity gltf-model="#cooler" scale="5 5 5"></a-entity>
+          </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html> -->
+
+<!doctype HTML>
+<html>
+<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@1.7.8/aframe/build/aframe-ar.js"></script>
+  <body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs="debugUIEnabled: false">
+      <a-assets>
+          <a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/2P3D/G326PP.gltf" ></a-asset-item>
+      </a-assets>
+      <a-marker preset="hiro">
+          <!-- <a-box position='0 0.5 0' material='color: yellow;'></a-box> -->
+          <!-- <a-gltf-model src="#cooler" scale="0.1 0.1 0.1"></a-gltf-model> -->
+          <a-entity gltf-model="#cooler" scale="5 5 5"></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>

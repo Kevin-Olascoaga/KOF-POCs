@@ -1,0 +1,20 @@
+<!doctype HTML>
+<html>
+<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@1.7.8/aframe/build/aframe-ar.js"></script>
+  <body style='margin : 0px; overflow: hidden;'>
+    <div style="position:fixed; margin:0px 100px">
+      <a style="position:fixed; margin:0px 100px" href="index.html" target="targetframe">1 Puertas</a><br />
+      <a style="position:fixed; margin:0px 100px" href="3puertas.html" target="targetframe">3 puertas</a>
+    </div>
+    <a-scene embedded arjs="debugUIEnabled: false">
+      <a-assets>
+          <a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/2P3D/G326PP.gltf" ></a-asset-item>
+      </a-assets>
+      <a-marker preset="hiro">
+          <a-entity gltf-model="#cooler" scale="5 5 5"></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>

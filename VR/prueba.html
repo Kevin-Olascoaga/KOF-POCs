@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>jQuery.getScript demo</title>
+  <title>Coolers en Realidad Aumentada</title>
   <style>
   .boton {
      background-color: red;
-     width: 150px;
-     height: 70px;
-     margin: 10px;
+     width: 75px;
+     height: 40px;
+     margin: 5px;
   }
   </style>
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -35,18 +35,15 @@
 </div>
  
 <script>
-var url = "https://code.jquery.com/color/jquery.color.js";
-$.getScript( url, function() {
   $( "#1puerta" ).click(function() {
-    $( ".asset" ).html( '<a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/2P3D/G326PP.gltf" ></a-asset-item>' );
+    $( ".asset" ).html( '<a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/1P3D/1PG319.gltf" ></a-asset-item>' );
   });
   $( "#2puertas" ).click(function() {
-    $( ".asset" ).html( "<p>2 puertas</p>" );
+    $( ".asset" ).html( '<a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/2P3D/G326PP.gltf" ></a-asset-item>' );
   });
   $( "#3puertas" ).click(function() {
-    $( ".asset" ).html( "<p>3 puertas</p>" );
+    $( ".asset" ).html( '<a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/3P3D/3PG342PP.gltf" ></a-asset-item>' );
   });
-});
 </script>
  
 </body>

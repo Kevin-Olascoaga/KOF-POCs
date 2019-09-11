@@ -1,34 +1,36 @@
 var port = process.env.PORT || 3000,
     http = require('http'),
     fs = require('fs'),
-    html = fs.readFileSync('index.html');
-
-var log = function(entry) {
-    fs.appendFileSync('/tmp/sample-app.log', new Date().toISOString() + ' - ' + entry + '\n');
-};
+    index = fs.readFileSync('index.html');
+    p2 = fs.readFileSync('2puertas.html');
+    p3 = fs.readFileSync('3puertas.html');
+    var url = require('url');
 
 var server = http.createServer(function (req, res) {
-    if (req.method === 'POST') {
-        var body = '';
+    var path = url.parse(req.url).pathname;
+    var fsCallback = function(error, data) {
+        if(error) throw error;
 
-        req.on('data', function(chunk) {
-            body += chunk;
-        });
-
-        req.on('end', function() {
-            if (req.url === '/') {
-                log('Received message: ' + body);
-            } else if (req.url = '/scheduled') {
-                log('Received task ' + req.headers['x-aws-sqsd-taskname'] + ' scheduled at ' + req.headers['x-aws-sqsd-scheduled-at']);
-            }
-
-            res.writeHead(200, 'OK', {'Content-Type': 'text/plain'});
-            res.end();
-        });
-    } else {
         res.writeHead(200);
-        res.write(html);
+        res.write(data);
         res.end();
+    }
+    switch(path){
+        case '/1puerta':
+            doc = fs.readFile(__dirname + '/index.html', fsCallback);
+        break;
+        case '/2puertas':
+            doc = fs.readFile(__dirname + '/2puertas.html', fsCallback);
+        break;
+        case '/3puertas':
+            doc = fs.readFile(__dirname + '/3puertas.html', fsCallback);
+        break;
+        case '/index':
+            doc = fs.readFile(__dirname + '/index.html', fsCallback);
+        break;
+        default:
+            doc = fs.readFile(__dirname + '/index.html', fsCallback);
+        break;
     }
 });
 
