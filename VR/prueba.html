@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery.getScript demo</title>
+  <style>
+  .boton {
+     background-color: red;
+     width: 150px;
+     height: 70px;
+     margin: 10px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@1.7.8/aframe/build/aframe-ar.js"></script>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+ 
+<button class="boton" id="1puerta">&raquo; Cooler 1</button>
+<button class="boton" id="2puertas">&raquo; Cooler 2</button>
+<button class="boton" id="3puertas">&raquo; Cooler 3</button>
+<div class="prueba">
+  <a-scene embedded arjs="debugUIEnabled: false">
+    <a-assets class="asset">
+        <a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/2P3D/G326PP.gltf" ></a-asset-item>
+    </a-assets>
+    <a-marker preset="hiro">
+        <!-- <a-box position='0 0.5 0' material='color: yellow;'></a-box> -->
+        <!-- <a-gltf-model src="#cooler" scale="0.1 0.1 0.1"></a-gltf-model> -->
+        <a-entity gltf-model="#cooler" scale="5 5 5"></a-entity>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+</div>
+ 
+<script>
+var url = "https://code.jquery.com/color/jquery.color.js";
+$.getScript( url, function() {
+  $( "#1puerta" ).click(function() {
+    $( ".asset" ).html( '<a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/2P3D/G326PP.gltf" ></a-asset-item>' );
+  });
+  $( "#2puertas" ).click(function() {
+    $( ".asset" ).html( "<p>2 puertas</p>" );
+  });
+  $( "#3puertas" ).click(function() {
+    $( ".asset" ).html( "<p>3 puertas</p>" );
+  });
+});
+</script>
+ 
+</body>
+</html>
