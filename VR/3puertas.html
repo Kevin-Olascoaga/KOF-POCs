@@ -2,17 +2,28 @@
 <html>
 <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@1.7.8/aframe/build/aframe-ar.js"></script>
-  <body style='margin : 0px; overflow: hidden;'>
-    <div style="position:fixed; margin:0px 100px">
-      <a style="position:fixed; margin:0px 100px" href="index.html" target="targetframe">1 Puertas</a><br />
-      <a style="position:fixed; margin:0px 100px" href="2puertas.html" target="targetframe">2 puertas</a>
-    </div>
-    <a-scene embedded arjs="debugUIEnabled: false">
-      <a-assets>
+<head>
+  <style>
+    .boton {
+       background-color: red;
+       width: 75px;
+       height: 40px;
+       margin: 5px;
+    }
+    </style>
+</head>  
+<body>
+    <!-- <div>
+      <button class="boton" href="index.html">1 Puertas</button>
+      <button class="boton" href="2puertas.html">2 puertas</button>
+    </div> -->
+    <a-scene embedded renderer='antialias: true; alpha: true; logarithmicDepthBuffer: true'
+    arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 4x4;'>
+    <a-assets>
           <a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/3P3D/3PG342PP.gltf" ></a-asset-item>
       </a-assets>
       <a-marker preset="hiro">
-          <a-entity gltf-model="#cooler" scale="5 5 5"></a-entity>
+          <a-entity gltf-model="#cooler" scale="10 10 10"></a-entity>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
