@@ -13,17 +13,17 @@
     </style>
 </head>  
 <body>
-    <div style='top: 10px; width:100%; text-align: center; z-index: 1;'>
-      <a class="boton" href="index.html">1 Puertas</a>
-      <a class="boton" href="2puertas.html">2 puertas</a>
-    </div>
+    <!-- <div>
+      <button class="boton" href="index.html">1 Puertas</button>
+      <button class="boton" href="2puertas.html">2 puertas</button>
+    </div> -->
     <a-scene embedded renderer='antialias: true; alpha: true; logarithmicDepthBuffer: true'
     arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 4x4;'>
     <a-assets>
           <a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/3P3D/G342PP.gltf" ></a-asset-item>
       </a-assets>
       <a-marker preset="hiro">
-          <a-entity gltf-model="#cooler" scale="10 10 10"></a-entity>
+          <a-entity gltf-model="#cooler" scale="6 6 6"></a-entity>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>

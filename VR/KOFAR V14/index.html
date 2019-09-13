@@ -1,0 +1,75 @@
+<!doctype HTML>
+<html>
+<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js@1.7.8/aframe/build/aframe-ar.js"></script>
+<head>
+  <style>
+    .boton {
+       background-color: red;
+       width: 75px;
+       height: 40px;
+       margin: 5px;
+    }
+    </style>
+</head>
+  <body>
+    <!-- <div>
+      <button class="boton" href="2puertas.html">2 Puertas</button>
+      <button class="boton" href="3puertas.html">3 puertas</button>
+    </div> -->
+    <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+      <button class="boton" id="1puerta">&raquo; Cooler 1</button>
+      <button class="boton" id="2puertas">&raquo; Cooler 2</button>
+      <button class="boton" id="3puertas">&raquo; Cooler 3</button>
+    </div>
+    <a-scene embedded renderer='antialias: true; alpha: true; logarithmicDepthBuffer: true'
+    arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 4x4;'>
+      <a-assets>
+          <a-asset-item id="cooler1" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/1P3D/1PG319.gltf" ></a-asset-item>
+          <a-asset-item id="cooler2" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/2P3D/G326PP.gltf" ></a-asset-item>
+          <a-asset-item id="cooler3" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/3P3D/G342PP.gltf" ></a-asset-item>
+      </a-assets>
+      <a-marker markerhandler preset="hiro" id="animated-marker">
+          <a-entity id="animated-model" gltf-model="#cooler1" scale="1 1 1"></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  
+    <script>
+      AFRAME.registerComponent('markerhandler', {
+
+      init: function() {
+          const animatedMarker = document.querySelector("#animated-marker");
+          const aEntity = document.querySelector("#animated-model");
+          const cooler1 = document.querySelector("#cooler1");
+          const cooler2 = document.querySelector("#cooler2");
+          const cooler3 = document.querySelector("#cooler3");
+
+          // every click, we make our model grow in size :)
+          // animatedMarker.addEventListener('click', function(ev, target){
+          //     const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+          //     if (aEntity && intersectedElement === aEntity) {
+          //         const scale = aEntity.getAttribute('scale');
+          //         Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
+          //         aEntity.setAttribute('scale', scale);
+          //     }
+          // });
+          $( "#1puerta" ).click(function() {
+            aEntity.setAttribute('gltf-model', cooler1);
+            aEntity.setAttribute('scale', "1 1 1");
+            // $( ".asset" ).html( '<a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/1P3D/1PG319.gltf" ></a-asset-item>' );
+          });
+          $( "#2puertas" ).click(function() {
+            aEntity.setAttribute('gltf-model', cooler2);
+            aEntity.setAttribute('scale', "6 6 6");
+            // $( ".asset" ).html( '<a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/2P3D/G326PP.gltf" ></a-asset-item>' );
+          });
+          $( "#3puertas" ).click(function() {
+            aEntity.setAttribute('gltf-model', cooler3);
+            aEntity.setAttribute('scale', "6 6 6");
+            // $( ".asset" ).html( '<a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/3P3D/3PG342PP.gltf" ></a-asset-item>' );
+          });
+      }});
+    </script>
+  </body>
+</html>
