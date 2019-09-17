@@ -6,10 +6,29 @@
 <head>
   <style>
     .boton {
-      background-color: red;
-      width: 75px;
-      height: 40px;
-      margin: 5px;
+      width: 65px;
+      height: 55px;
+      border: none;
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+    .p1p {
+      background-image: url('./images/1pp.jpg');
+    }
+    .p1r {
+      background-image: url('./images/1pr.jpg');
+    }
+    .p2p {
+      background-image: url('./images/2pp.jpg');
+    }
+    .p2r {
+      background-image: url('./images/2pr.jpg');
+    }
+    .p3p {
+      background-image: url('./images/3pp.jpg');
+    }
+    .p3r {
+      background-image: url('./images/3pr.jpg');
     }
   </style>
 </head>
@@ -19,10 +38,10 @@
       <button class="boton" href="2puertas.html">2 Puertas</button>
       <button class="boton" href="3puertas.html">3 puertas</button>
     </div> -->
-  <div style='top: 10px; width:100%; text-align: center; z-index: 1;'>
-    <button class="boton" id="1puerta">&raquo; Cooler 1</button>
-    <button class="boton" id="2puertas">&raquo; Cooler 2</button>
-    <button class="boton" id="3puertas">&raquo; Cooler 3</button>
+  <div style='top: 10px; width:100%; text-align: center; z-index: 1; background-color: white'>
+    <button class="boton p1p" id="1puerta"></button>
+    <button class="boton p2r" id="2puertas"></button>
+    <button class="boton p3r" id="3puertas"></button>
   </div>
   <!-- <a-scene embedded renderer='antialias: true; alpha: true; logarithmicDepthBuffer: true'
     arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 4x4;'> -->
@@ -37,9 +56,9 @@
         src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/3P3D/G342PP.gltf"></a-asset-item>
     </a-assets>
     <a-marker markerhandler preset="hiro" id="animated-marker">
-      <a-entity visible="true" id="animated-model1" gltf-model="#cooler1" scale="1 1 1"></a-entity>
-      <a-entity visible="false" id="animated-model2" gltf-model="#cooler2" scale="1 1 1"></a-entity>
-      <a-entity visible="false" id="animated-model3" gltf-model="#cooler3" scale="1 1 1"></a-entity>
+      <a-entity visible="true" id="animated-model1" gltf-model="#cooler1" scale="7 7 7"></a-entity>
+      <a-entity visible="false" id="animated-model2" gltf-model="#cooler2" scale="7.5 7.5 7.5"></a-entity>
+      <a-entity visible="false" id="animated-model3" gltf-model="#cooler3" scale="10 10 10"></a-entity>
     </a-marker>
     <a-entity camera></a-entity>
   </a-scene>
@@ -55,6 +74,7 @@
         const cooler1 = document.querySelector("#cooler1");
         const cooler2 = document.querySelector("#cooler2");
         const cooler3 = document.querySelector("#cooler3");
+        var escala = 1;
 
         // every click, we make our model grow in size :)
         // animatedMarker.addEventListener('click', function(ev, target){
@@ -66,6 +86,9 @@
         //     }
         // });
         $("#1puerta").click(function () {
+          $("#1puerta").removeClass("p1r").addClass("p1p");
+          $("#2puertas").removeClass("p2p").addClass("p2r");
+          $("#3puertas").removeClass("p3p").addClass("p3r");
           aEntity1.object3D.visible = true;
           aEntity2.object3D.visible = false;
           aEntity3.object3D.visible = false;
@@ -73,6 +96,9 @@
           // $( ".asset" ).html( '<a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/1P3D/1PG319.gltf" ></a-asset-item>' );
         });
         $("#2puertas").click(function () {
+          $("#1puerta").removeClass("p1p").addClass("p1r");
+          $("#2puertas").removeClass("p2r").addClass("p2p");
+          $("#3puertas").removeClass("p3p").addClass("p3r");
           aEntity1.object3D.visible = false;
           aEntity2.object3D.visible = true;
           aEntity3.object3D.visible = false;
@@ -80,12 +106,27 @@
           // $( ".asset" ).html( '<a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/2P3D/G326PP.gltf" ></a-asset-item>' );
         });
         $("#3puertas").click(function () {
+          $("#1puerta").removeClass("p1p").addClass("p1r");
+          $("#2puertas").removeClass("p2p").addClass("p2r");
+          $("#3puertas").removeClass("p3r").addClass("p3p");
           aEntity1.object3D.visible = false;
           aEntity2.object3D.visible = false;
           aEntity3.object3D.visible = true;
           console.log("3Puerta");
           // $( ".asset" ).html( '<a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/3P3D/3PG342PP.gltf" ></a-asset-item>' );
         });
+        // $("#1escala").click(function () {
+        //   escala = escala + 1;
+        //   aEntity1.object3D.scale.set(escala, escala, escala);
+        //   aEntity2.object3D.scale.set(escala, escala, escala);
+        //   aEntity3.object3D.scale.set(escala, escala, escala);
+        // });
+        // $("#0escala").click(function () {
+        //   escala = escala - 0.5;
+        //   aEntity1.object3D.scale.set(escala, escala, escala);
+        //   aEntity2.object3D.scale.set(escala, escala, escala);
+        //   aEntity3.object3D.scale.set(escala, escala, escala);
+        // });
       },
       tick: function () {
         // Don't call query selector in here, query beforehand.
