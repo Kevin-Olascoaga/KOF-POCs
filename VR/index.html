@@ -61,6 +61,12 @@
       <a-entity visible="false" id="animated-model2" gltf-model="#cooler2" scale="5 5 5"></a-entity>
       <a-entity visible="false" id="animated-model3" gltf-model="#cooler3" scale="11 11 11"></a-entity>
     </a-marker>
+    <a-marker type='pattern' url='https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/patrones/pattern-kof-botella.patt'>
+      <a-light type="ambient" color="#ccccc"></a-light>
+      <a-entity visible="true" id="kanimated-model1" gltf-model="#cooler1" scale="4 4 4"></a-entity>
+      <a-entity visible="false" id="kanimated-model2" gltf-model="#cooler2" scale="5 5 5"></a-entity>
+      <a-entity visible="false" id="kanimated-model3" gltf-model="#cooler3" scale="11 11 11"></a-entity>
+    </a-marker>
     <a-entity camera></a-entity>
   </a-scene>
 
@@ -72,6 +78,9 @@
         const aEntity1 = document.querySelector("#animated-model1");
         const aEntity2 = document.querySelector("#animated-model2");
         const aEntity3 = document.querySelector("#animated-model3");
+        const kaEntity1 = document.querySelector("#kanimated-model1");
+        const kaEntity2 = document.querySelector("#kanimated-model2");
+        const kaEntity3 = document.querySelector("#kanimated-model3");
         const cooler1 = document.querySelector("#cooler1");
         const cooler2 = document.querySelector("#cooler2");
         const cooler3 = document.querySelector("#cooler3");
@@ -93,6 +102,9 @@
           aEntity1.object3D.visible = true;
           aEntity2.object3D.visible = false;
           aEntity3.object3D.visible = false;
+          kaEntity1.object3D.visible = true;
+          kaEntity2.object3D.visible = false;
+          kaEntity3.object3D.visible = false;
           console.log("1Puerta");
           // $( ".asset" ).html( '<a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/1P3D/1PG319.gltf" ></a-asset-item>' );
         });
@@ -103,6 +115,9 @@
           aEntity1.object3D.visible = false;
           aEntity2.object3D.visible = true;
           aEntity3.object3D.visible = false;
+          kaEntity1.object3D.visible = false;
+          kaEntity2.object3D.visible = true;
+          kaEntity3.object3D.visible = false;
           console.log("2Puerta");
           // $( ".asset" ).html( '<a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/2P3D/G326PP.gltf" ></a-asset-item>' );
         });
@@ -113,6 +128,9 @@
           aEntity1.object3D.visible = false;
           aEntity2.object3D.visible = false;
           aEntity3.object3D.visible = true;
+          kaEntity1.object3D.visible = false;
+          kaEntity2.object3D.visible = false;
+          kaEntity3.object3D.visible = true;
           console.log("3Puerta");
           // $( ".asset" ).html( '<a-asset-item id="cooler" src="https://cdn.jsdelivr.net/gh/Kevin-Olascoaga/KOF-POCs@master/VR/coolers/3P3D/3PG342PP.gltf" ></a-asset-item>' );
         });
